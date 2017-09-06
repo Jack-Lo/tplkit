@@ -1,0 +1,11 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "a demo template.",
+  "main": "index.js",
+  "author": "Jack Lo",
+  "license": "MIT",
+  "devDependencies": {
+    "tplkit": "^0.1.0"
+  }
+}
