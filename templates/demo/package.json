@@ -6,6 +6,6 @@
   "author": "Jack Lo",
   "license": "MIT",
   "devDependencies": {
-    "tplkit": "^0.1.0"
+    "tplkit": "^0.1.1"
   }
 }
