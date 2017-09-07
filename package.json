@@ -1,6 +1,6 @@
 {
   "name": "tplkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A kit to set up a project by templates.",
   "main": "lib/index.js",
   "module": "dist/index.esm.js",
@@ -19,7 +19,8 @@
     "dev": "npm run clear && rollup -c build/config.js -w --environment build:dev,format:cjs",
     "build": "npm run clear && rollup -c build/config.js --environment build:prod,format:cjs",
     "test": "mocha",
-    "test:watch": "mocha -w"
+    "test:watch": "mocha -w",
+    "publish": "node build/reset.js && npm run build && npm publish"
   },
   "author": "Jack Lo",
   "license": "ISC",
