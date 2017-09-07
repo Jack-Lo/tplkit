@@ -211,6 +211,8 @@ replace的一个item分为两个部分：
 - **file**：需要替换的文件
 - **parser**：替换的函数，接受两个参数`cnt`和`args`，`cnt`是根据`file`来读取的文本内容，你可以对其进行处理，最后return一个新的文本内容，完成替换；而`args`则是由会话得到的结果对象，这包括**基础会话**得到的结果和由设置的`questions`得到的结果的集合
 
+补充一下，基础会话的结果对应会话题目的驼峰变量，比如`Project name`对应`args.projectName`，`Template type`对应`args.templateType`，以此类推，而`questions`是由模板开发者自己配置的，不强制按此规则执行。
+
 
 ### include && exclude
 
