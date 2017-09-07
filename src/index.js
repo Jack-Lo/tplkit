@@ -14,13 +14,6 @@ var glob = require('glob')
 
 class Tplkit {
   constructor (program) {
-    var config = require('../config.json')
-
-    if (!config.default.tplPath) {
-      config.default.tplPath = tplPath
-      updateConfig(config)
-    }
-
     this.program = program
   }
 
@@ -30,10 +23,11 @@ class Tplkit {
     getBaseInfo()
     .then((res) => {
       var cfg = getCfg()
+      var tplPathF = cfg.tplPath ? cfg.tplPath : tplPath
       var { projectName, templateType } = res
       var crtPath = process.cwd()
       var projectPath = path.resolve(crtPath, projectName)
-      var crtTplPath = path.resolve(cfg.tplPath, templateType)
+      var crtTplPath = path.resolve(tplPathF, templateType)
       var tplConfigPath = path.resolve(crtTplPath, tplConfigFile)
 
       if (exists(projectPath)) {
@@ -100,9 +94,10 @@ class Tplkit {
 function getBaseInfo () {
   var cfg = getCfg()
   var types = []
+  var tplPathF = cfg.tplPath ? cfg.tplPath : tplPath
 
-  if (exists(cfg.tplPath)) {
-    types = fs.readdirSync(cfg.tplPath)
+  if (exists(tplPathF)) {
+    types = fs.readdirSync(tplPathF)
   } else {
     printFail(`Directory "${cfg.tplPath}" does no exists.`)
 
