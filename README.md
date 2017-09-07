@@ -46,7 +46,7 @@ $ tplkit init
 🎉  All done, have a nice working day!
 ```
 
-以上过程，从`? Name:`开始便是`demo`的相关配置内容，这个是由于`demo`目录下的`tplkit.config.js`文件来设置的，也就是说，你可以通过模板配置文件来获取你需要的用户输入数据。
+以上过程，从`? Name:`开始便是`demo`的相关配置内容，这个是由`demo`目录下的`tplkit.config.js`文件来设置的，也就是说，你可以通过模板配置文件来获取你需要的用户输入数据。
 
 完成以上工作后，在当前目录下，会生成一个与`Project name`的输入值对应的项目，这里是`test_tplkit`，打开看到`package.json`，我们可以看到前面输入的`Name`、`Description`、`Author`、`Version`都会对应出现在相关字段里：
 
@@ -61,7 +61,7 @@ $ tplkit init
 }
 ```
 
-不仅仅是`package.json`，项目下的任何文件都可以被配置，只有你在`tplkit.config.js`中配置了相关内容，这一块我们后面会介绍，感兴趣的可以先看看`test_tplkit/tplkit.config.js`。
+不仅仅是`package.json`，项目下的任何文件都可以被修改，只要你在`tplkit.config.js`中配置了相关内容，这一块我们后面会介绍，感兴趣的可以先看看`test_tplkit/tplkit.config.js`。
 
 这就是`init`的过程，根据简单的用户输入快速生成一个项目。
 
@@ -74,11 +74,11 @@ $ tplkit init
 $ tplkit config
 🎉  Config list:
 {
-  "tplPath": "/Users/jack/Desktop/develop/tplkit/templates"
+  "tplPath": null
 }
 ```
 
-配置信息是由**默认配置信息**和**用户配置信息**两部分merge而来的，所以对于统一配置项，用户配置会覆盖默认配置，否则默认是默认配置信息：
+配置信息是由**默认配置信息**和**用户配置信息**两部分**merge**而来的，所以对于同一配置项，用户配置会覆盖默认配置，否则默认是默认配置信息：
 
 - **tplPath**：即模板的存放目录，默认使用`tplkit`所在目录下的`templates`目录
 
@@ -113,6 +113,8 @@ set后面跟两个参数：`option`与`value`，如上，我们设置了`tplPath
 ```
 
 你会发现`Template type`项有了`a`和`b`两种模板类型了，同时生成的`test_tplkit`的结构与我们新建的模板`a`的结构保持一致，因为`test_tplkit`就是copy了`a`。
+
+> 注意：这里会提示我们没有找到`tplkit.config.js`文件，因为我们还没有做相关的配置，而即便没有配置，也不影响其运行，默认copy整个模板。
 
 
 ### reset
@@ -197,12 +199,12 @@ module.exports = {
 
 ### questions
 
-会话数组，具体参数设置请参考：[inquirer](https://github.com/sboudrias/Inquirer.js)。
+会话数组，表示希望通过用户的输入得到的信息，具体参数设置请参考：[inquirer](https://github.com/sboudrias/Inquirer.js)。
 
 
 ### replace
 
-替换数组，也就是需要替换内容，比如我们之前演示`demo`的时候，根据用户输入的内容，来替换`package.json`里的相应内容。
+替换数组，也就是需要替换的内容，比如我们之前演示`demo`的时候，根据用户输入的内容，来替换`package.json`里的相应内容。
 
 replace的一个item分为两个部分：
 
