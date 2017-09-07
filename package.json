@@ -20,7 +20,7 @@
     "build": "npm run clear && rollup -c build/config.js --environment build:prod,format:cjs",
     "test": "mocha",
     "test:watch": "mocha -w",
-    "publish": "node build/reset.js && npm run build && npm publish"
+    "reset": "node build/reset.js && npm run build"
   },
   "author": "Jack Lo",
   "license": "ISC",
